@@ -1,0 +1,21 @@
+<mx:LinkButton
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	click="onClick()"
+	label="{url}"
+	>
+	
+	<mx:String id="url"/>
+	
+	<mx:Script>
+		<![CDATA[
+			import flash.net.*;
+		
+			private function onClick():void
+			{
+				navigateToURL(new URLRequest(url), "_blank");
+			}
+		]]>
+	</mx:Script>
+	
+	
+</mx:LinkButton>

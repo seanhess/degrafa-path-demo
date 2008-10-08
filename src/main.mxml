@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:degrafa="http://www.degrafa.com/2007"
+	xmlns="*"
+	backgroundGradientColors="[#333333, #222222]"
+	layout="vertical" horizontalAlign="left"
+	creationComplete="onComplete()"
+	>    
+	
+	<mx:Script>
+		<![CDATA[
+			import flash.events.Event;
+		
+			private function onComplete():void
+			{
+				addEventListener("exampleClick",onExampleClick)
+			}
+			
+			private function onExampleClick(event:ExampleEvent):void
+			{
+				input.text = (event.full) ? event.text : input.text + " " + event.text;
+			}
+		]]>
+	</mx:Script>
+	
+	
+	<mx:Style> 
+		.header, .example {
+			font-size: 10pt;
+			font-family: "Verdana";
+			color: #FFFFFF;
+		}                
+		
+		.example {
+			font-weight:none;	
+		}
+		
+		.header {
+			font-weight:bold;
+		}    
+		
+		VBox {
+			vertical-gap: 0;
+			background-color:#444444;
+			padding-left: 5;
+			padding-right: 5;
+			padding-top: 5;
+			padding-bottom: 5;
+		}
+		
+		.overlay {
+			background-color: #000000;
+			background-alpha: 0.8;
+			color: #FFFFFF;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			padding-left: 20;
+			padding-top: 20;
+		}
+   	</mx:Style>
+
+	<mx:Boolean id="showHelp">{help.selected}</mx:Boolean>
+	
+	<mx:HBox width="100%">
+		<mx:TextInput id="input" width="100%" fontSize="24"/>
+		<mx:Button id="help" icon="@Embed('help.png')" height="40" toggle="true"/>
+	</mx:HBox>
+	<mx:Canvas width="100%" height="100%">
+		<degrafa:Surface top="10" right="10" bottom="10" left="10">
+			<degrafa:fills> 
+				<degrafa:SolidFill id="fill" color="#62ABCD"/>
+			</degrafa:fills>                                    
+			<degrafa:strokes> 
+				<degrafa:SolidStroke id="stroke" color="#FFFFFF" alpha="0.9" weight="3"/>
+			</degrafa:strokes>                                                
+			<degrafa:GeometryGroup> 
+				<degrafa:Path fill="{fill}" stroke="{stroke}" data="{input.text}"/>
+			</degrafa:GeometryGroup>
+		</degrafa:Surface>    
+		<mx:Tile id="tile" right="0" top="0" horizontalAlign="right" width="400">
+			<mx:VBox width="100%" height="100%">
+				<Header text="Move"/>
+				<Example text="M x,y" />
+				<Example text="M 0,100"/> 
+				<Example text="m 10,10"/> 
+			</mx:VBox>   
+			<mx:VBox width="100%" height="100%">
+				<Header text="Line"/>
+				<Example text="L x,y "/>
+				<Example text="L 100,100"/> 
+				<Example text="l 20,20"/> 
+			</mx:VBox>
+			<mx:VBox width="100%" height="100%">
+				<Header text="HLine"/>
+				<Example text="H x"/>
+				<Example text="H 100"/> 
+				<Example text="h -30"/> 
+				<Example text="h 30"/> 
+			</mx:VBox>
+			<mx:VBox width="100%" height="100%">
+				<Header text="VLine"/>
+				<Example text="V x,y"/>
+				<Example text="V 100"/> 
+				<Example text="v -20"/> 
+				<Example text="v 20"/> 
+			</mx:VBox>  
+		</mx:Tile> 
+		<mx:VBox top="{tile.height+20}" right="0">
+			<Header text="Full Examples"/>
+			<FullExample text="h 30 h 40 v 40 h -30 v 500 h-10 v-200 h-10 h-10 H 0"/>
+			<FullExample text="M 100,100 L 100,100 L 200,100  L 200,200"/>
+		</mx:VBox>
+		<mx:VBox styleName="overlay" visible="{showHelp}" verticalGap="10">
+			<mx:Text text="Type SVG/Degrafa path data into the box on top and watch as Degrafa draws it for you. Click on any of the examples to the right to see them in action" width="300"/>
+			<mx:Text text="The full examples will replace the contents of the input box, while the others will add their value to the end" width="300"/>
+			<mx:Text text="Capital letters mean absolute coordinates, and lower-case mean relative coordinates" width="300"/>
+			<Link url="http://docs.degrafa.com/com/degrafa/geometry/Path.html" />
+			<Link url="http://www.w3.org/TR/SVG/paths.html" />
+		</mx:VBox>
+	</mx:Canvas>
+</mx:Application>

@@ -1,0 +1,11 @@
+<mx:LinkButton
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	styleName="example"  
+	label="{text}"
+	click="dispatchEvent(new ExampleEvent(text, full))"
+	>     
+	
+	<mx:Boolean id="full">false</mx:Boolean>
+	<mx:String id="text"/>          
+	
+</mx:LinkButton>

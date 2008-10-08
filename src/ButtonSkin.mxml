@@ -1,0 +1,14 @@
+<mx:UIComponent
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	>
+	
+	<!-- This skin just hid
+	
+	<skins:states>
+        <mx:State name="up" />
+        <mx:State name="down" />
+        <mx:State name="over"/>
+        <mx:State name="disabled"/>
+     </skins:states>
+	
+</mx:UIComponent>
