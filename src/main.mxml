@@ -111,14 +111,15 @@
 			</mx:Tile> 
 			<mx:VBox>
 				<Header text="Full Examples"/>
+				<FullExample text="h 20 v 20 h -20 z"/>
 				<FullExample text="h 30 h 40 v 40 h -30 v 500 h-10 v-200 h-10 h-10 H 0"/>
-				<FullExample text="M 50,50 L 100,100 L 200,100  L 200,200"/>
+				<FullExample text="M 100,100 L 100,100 L 200,100  L 200,200"/>
 				<FullExample text="l 300,0 l 0,80 l -300,0 z"/>
 				<FullExample text="M 50,50 l 40,0 l 20,-20 l 20,20 l 220,0 l 0,80 l -300,0 z"/>
 				<FullExample text="M 50,70 l 20,-20 l 20,0 l 20,-20 l 20,20 l 200,0 l 20,20 l 0,40 l -20,20 l -260,0 l -20,-20 z"/>
 				<FullExample text="M 50,70 q 0,-20 20,-20 h 20 l 20,-20 l 20,20 h 200 q 20,0 20,20 v 40 l -20,20 h -260 l -20,-20 z"/>
-				<FullExample text="M 50,50 H 200 Q 240,100 240,140 V 160 Q 240,200 200,200 H 100"/>
-				<FullExample text="M 50,50 h 100 q 40,0 40,40 v 20 q 0,40 -40,40 h -100"/>
+				<FullExample text="M 100,100 H 200 Q 240,100 240,140 V 160 Q 240,200 200,200 H 100"/>
+				<FullExample text="M 100,100 h 100 q 40,0 40,40 v 20 q 0,40 -40,40 h -100"/>
 			</mx:VBox>
 		</mx:VBox>
 		<degrafa:Surface top="10" right="10" bottom="10" left="10">
